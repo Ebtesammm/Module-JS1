@@ -1,4 +1,29 @@
-// Implement a function getAngleType, and tests for each of the acceptance criteria.
+// Implement a function , and tests for each of the acceptance criteria.
+
+function getAngleType(angle){
+    if (angle === 90) {
+        return "Right angle";
+    } else if ( angle < 90){
+        return "Acute angle";
+
+    } else if ( angle > 90 && angle < 100){
+
+      return "Obtuse angle";  
+ 
+    } else if ( angle === 180){
+        return "Straight angle";
+    } else if ( angle > 180 && angle < 390) {
+        return "Reflex angle";
+
+    } else {
+        return "nothing";
+    }
+
+        
+}
+
+
+console.log(getAngleType(90));
 
 // Acceptance criteria:
 
