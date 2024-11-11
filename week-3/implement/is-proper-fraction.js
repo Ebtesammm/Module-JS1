@@ -4,7 +4,30 @@
 // Terms:
 // Fractions: https://www.bbc.co.uk/bitesize/topics/zt9n6g8/articles/zjxpp4j
 // Written here like this: 1/2 == Numerator/Denominator
+function isProperFraction(numerator, denominator) {
+  if (denominator === 0) {
+    throw new Error("Denominator cannot be zero"); 
+  }
+  return Math.abs(numerator) < denominator; 
+}
 
+// Test cases
+console.assert(isProperFraction(2, 3) === true, "Test Case 1 Failed"); 
+console.assert(isProperFraction(5, 2) === false, "Test Case 2 Failed"); 
+console.assert(isProperFraction(-4, 7) === true, "Test Case 3 Failed"); 
+console.assert(isProperFraction(3, 3) === false, "Test Case 4 Failed"); 
+
+try {
+  isProperFraction(3, 0);
+  console.error("Test Case 5 Failed");
+} catch (e) {
+  console.assert(
+    e.message === "Denominator cannot be zero",
+    "Test Case 5 Failed"
+  ); 
+}
+
+console.log("All test cases passed!");
 // Acceptance criteria:
 
 // Proper Fraction check:

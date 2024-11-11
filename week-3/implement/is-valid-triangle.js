@@ -1,5 +1,22 @@
 // Implement a function isValidTriangle
+function isValidTriangle(a, b, c) {
+  if (a <= 0 || b <= 0 || c <= 0) {
+    return false;
+  }
 
+  if (a + b > c && a + c > b && b + c > a) {
+    return true;
+  }
+
+  return false;
+}
+
+console.assert(isValidTriangle(3, 3, 3) === true, "Test Case 1 Failed");
+console.assert(isValidTriangle(1, 2, 3) === false, "Test Case 2 Failed");
+console.assert(isValidTriangle(0, 2, 2) === false, "Test Case 3 Failed");
+console.assert(isValidTriangle(-1, 2, 2) === false, "Test Case 4 Failed");
+console.assert(isValidTriangle(5, 1, 1) === false, "Test Case 5 Failed");
+console.assert(isValidTriangle(2, 2, 5) === false, "Test Case 6 Failed");
 // 🗝️ Terms
 // the Triangle Inequality says: the sum of any two sides is always greater than the third side.
 // practical examples:

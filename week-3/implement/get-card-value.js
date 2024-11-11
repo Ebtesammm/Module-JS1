@@ -2,6 +2,42 @@
 
 // You will need to implement a function getCardValue
 
+function getCardValue(card){
+
+const value = card[0];
+
+if( value === "A"){
+    return 11;
+} 
+
+if (value === "K" || value === "Q" || value === "J") {
+  return 10;
+}
+
+const numericValue = parseInt(value, 10);
+if (numericValue >= 2 && numericValue <= 10) {
+  return numericValue;
+}
+
+throw new Error("Invalid card rank.");
+
+}
+
+
+console.assert(getCardValue("A♠") === 11, "Test Case 1 Failed"); 
+console.assert(getCardValue("K♦") === 10, "Test Case 2 Failed"); 
+console.assert(getCardValue("Q♥") === 10, "Test Case 3 Failed"); 
+console.assert(getCardValue("J♣") === 10, "Test Case 4 Failed"); 
+console.assert(getCardValue("5♠") === 5, "Test Case 5 Failed"); 
+console.assert(getCardValue("10♦") === 10, "Test Case 6 Failed"); 
+try {
+  getCardValue("Z♣"); 
+  console.error("Test Case 7 Failed"); 
+} catch (e) {
+  console.assert(e.message === "Invalid card rank.", "Test Case 7 Failed"); 
+}
+
+
 // You need to write assertions for your function to check it works in different cases
 
 // Acceptance criteria:

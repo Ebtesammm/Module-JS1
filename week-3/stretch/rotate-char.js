@@ -6,6 +6,21 @@
 // This function is commonly used for weak text encryption and decryption,
 // where shifting characters by a certain value can obscure their meaning or reveal hidden messages.
 
+
+function rotateCharacter(char, shift) {
+  if (char >= "a" && char <= "z") {
+    return String.fromCharCode(
+      ((((char.charCodeAt(0) - 97 + shift) % 26) + 26) % 26) + 97
+    );
+  }
+  if (char >= "A" && char <= "Z") {
+    return String.fromCharCode(
+      ((((char.charCodeAt(0) - 65 + shift) % 26) + 26) % 26) + 65
+    );
+  }
+  return char;
+}
+
 // Acceptance criteria:
 
 // Given a character (char) and a shift value (shift),
